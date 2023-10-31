@@ -1,0 +1,98 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #181818;
+}
+
+header h1 {
+  color: aliceblue;
+  margin: 1.5rem;
+}
+
+#first-h2 {
+  color: aliceblue;
+  margin: 1.5rem;
+}
+
+main {
+  height: 100vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#new-movie-form {
+  background-color: #333;
+  color: aliceblue;
+  width: 20rem;
+  padding: 2rem;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+input {
+  background-color: #3b3b3b;
+  border: solid 1px grey;
+  border-radius: 0.18rem;
+  color: aliceblue;
+}
+
+select {
+  background-color: #3b3b3b;
+  color: aliceblue;
+  border-radius: 0.18rem;
+}
+
+#criticScore {
+  width: 3rem;
+}
+
+#audienceScore {
+  width: 3rem;
+}
+
+button {
+  background-color: grey;
+  border: none;
+  color: aliceblue;
+  margin-top: 0.5rem;
+  padding: 0.3rem 2.5rem;
+  border-radius: 0.18rem;
+  align-self: center;
+  font-size: 1.2rem;
+}
+
+#movie-container {
+  border: solid 1px aliceblue;
+  background-color: #333;
+  overflow: auto;
+  padding: 3rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  width: 55rem;
+  height: 35rem;
+}
+
+li {
+  list-style: none;
+}
+
+.movie-card {
+  color: aliceblue;
+  width: 15rem;
+  padding: 1.5rem;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.movie-card h4 {
+  padding-bottom: 1rem;
+  font-size: 1.3rem;
+}

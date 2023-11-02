@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/src/style.css" />
+    <link rel="stylesheet" href="./src/style.css" />
     <title>Compare Movies</title>
   </head>
   <body>
@@ -23,15 +23,15 @@
         </section>
         <section aria-labelledby="input critic score">
           <label for="criticScore">Critic Score:</label>
-          <input type="text" id="criticScore" name="criticScore" />
+          <input type="number" id="criticScore" name="criticScore" />
         </section>
         <section aria-labelledby="input audience score">
           <label for="audienceScore">Audience Score:</label>
-          <input type="text" id="audienceScore" name="audienceScore" />
+          <input type="number" id="audienceScore" name="audienceScore" />
         </section>
         <section aria-labelledby="input domestic gross sales">
           <label for="dgs">Domestic Gross Sales:</label>
-          <input type="text" id="dgs" name="dgs" />
+          <input type="number" id="dgs" name="dgs" />
         </section>
 
         <!-- Drop Down -->
@@ -56,15 +56,7 @@
         <button>Add Movie</button>
       </form>
 
-      <ul aria-labelledby="movie-container" id="movie-container">
-        <li class="movie-card" aria-labelledby="movie information">
-          <h4>hidd</h4>
-          <p>Critic Score: 50%</p>
-          <p>Audience Score: 60%</p>
-          <p>Domestic Total: $728329932</p>
-          <p>Genre: Comedy</p>
-        </li>
-      </ul>
+      <ul aria-labelledby="movie-container" id="movie-container"></ul>
     </main>
     <script type="module" src="./src/main.js"></script>
   </body>

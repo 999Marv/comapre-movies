@@ -37,7 +37,6 @@ const displayMovie = (mov, critS, audS, dom, gen) => {
   genre.textContent = `Genre: ${gen}`;
 
   li.append(movieName, criticScore, audienceScore, domestic, genre);
-  // movieContainer.append(li);
   return li;
 };
 
@@ -64,6 +63,15 @@ const handleMovieInput = (e) => {
   const { movieTitle, criticScore, audienceScore, dgs, genre } =
     Object.fromEntries(formData);
 
+  //save movies to local storage
+  setLocalStorageKey('james', {
+    movieTitle,
+    criticScore,
+    audienceScore,
+    dgs,
+    genre,
+  });
+
   movieContainer.prepend(
     displayMovie(movieTitle, criticScore, audienceScore, dgs, genre)
   );
@@ -74,8 +82,23 @@ const handleMovieInput = (e) => {
 //form event listener
 form.addEventListener('submit', handleMovieInput);
 
+//post local storage
+// const displayLocalMovies = () => {
+//   for (let i = 0; i < localStorage.length; i++) {
+//     const { movieTitle, criticScore, audienceScore, dgs, genre } =
+//       getLocalStorageValue(i);
+
+//     movieContainer.prepend(
+//       displayMovie(movieTitle, criticScore, audienceScore, dgs, genre)
+//     );
+//   }
+// };
+
 const main = () => {
+  // displayLocalMovies();
   displayAllMovies();
 };
 
 main();
+
+//figure out local storage key, save it as a number and increment each time it is used

@@ -23,21 +23,26 @@
         </section>
         <section aria-labelledby="input critic score">
           <label for="criticScore">Critic Score:</label>
-          <input type="number" id="criticScore" name="criticScore" />
+          <input type="number" id="criticScore" name="criticScore" required />
         </section>
         <section aria-labelledby="input audience score">
           <label for="audienceScore">Audience Score:</label>
-          <input type="number" id="audienceScore" name="audienceScore" />
+          <input
+            type="number"
+            id="audienceScore"
+            name="audienceScore"
+            required
+          />
         </section>
         <section aria-labelledby="input domestic gross sales">
           <label for="dgs">Domestic Gross Sales:</label>
-          <input type="number" id="dgs" name="dgs" />
+          <input type="number" id="dgs" name="dgs" required />
         </section>
 
         <!-- Drop Down -->
         <section aria-labelledby="choose a movie genre">
           <label for="genre">Genre:</label>
-          <select name="genre" id="genre">
+          <select name="genre" id="genre" required>
             <option>Select a genre</option>
             <option value="action">Action</option>
             <option value="adventure">Adventure</option>

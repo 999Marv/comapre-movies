@@ -1,4 +1,4 @@
-import movieData from '/src/movie-data.json';
+import movieData from '../movie-data.json';
 
 //Local Storage Code
 const setLocalStorageKey = (key, value) => {
@@ -18,11 +18,23 @@ const getLocalStorageValue = (key) => {
 const form = document.querySelector('#new-movie-form');
 const movieContainer = document.querySelector('#movie-container');
 
+//charts
+const boxCtx = document.querySelector('#box-chart');
+const genreCtx = document.querySelector('#genre-chart');
+const critCtx = document.querySelector('#crit-chart');
+
+//box arrays
+const labelArray = [];
+const dataArray = [];
+
+//crit
+
 //display movie function
 const displayMovie = (mov, critS, audS, dom, gen) => {
   const li = document.createElement('li');
   li.className = 'movie-card';
   li.ariaLabel = 'movie information';
+  li.tabIndex = '0';
 
   const movieName = document.createElement('h4');
   const criticScore = document.createElement('p');
@@ -52,6 +64,8 @@ const displayAllMovies = () => {
         movieData[i].genre
       )
     );
+    labelArray.push(movieData[i].title);
+    dataArray.push(movieData[i].domestic);
   }
 };
 
@@ -71,6 +85,9 @@ const handleMovieInput = (e) => {
     dgs,
     genre,
   });
+
+  labelArray.unshift(movieTitle);
+  dataArray.unshift(dgs);
 
   movieContainer.prepend(
     displayMovie(movieTitle, criticScore, audienceScore, dgs, genre)
@@ -109,10 +126,116 @@ const resetHandler = (e) => {
 
 resetBtn.addEventListener('click', resetHandler);
 
+const displayBoxChart = () => {
+  new Chart(boxCtx, {
+    type: 'bar',
+    data: {
+      labels: labelArray,
+      datasets: [
+        {
+          label: 'Domestic Gross Totals',
+          data: dataArray,
+          borderWidth: 3,
+        },
+      ],
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true,
+        },
+      },
+    },
+  });
+
+  new Chart(genreCtx, {
+    type: 'doughnut',
+    data: {
+      labels: labelArray,
+      datasets: [
+        {
+          label: 'Domestic Gross Totals',
+          data: dataArray,
+          borderWidth: 3,
+        },
+      ],
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true,
+        },
+      },
+    },
+  });
+
+  new Chart(critCtx, {
+    type: 'scatter',
+    data: {
+      labels: labelArray,
+      datasets: [
+        {
+          label: 'Critic Score',
+          data: [
+            {
+              x: -10,
+              y: 0,
+            },
+            {
+              x: 0,
+              y: 10,
+            },
+            {
+              x: 10,
+              y: 5,
+            },
+            {
+              x: 100,
+              y: 5.5,
+            },
+          ],
+          borderWidth: 3,
+        },
+
+        {
+          label: 'Audience Score',
+          data: [
+            {
+              x: -10,
+              y: 0,
+            },
+            {
+              x: 0,
+              y: 10,
+            },
+            {
+              x: 10,
+              y: 5,
+            },
+            {
+              x: 0.5,
+              y: 5.5,
+            },
+          ],
+          borderWidth: 3,
+        },
+      ],
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true,
+        },
+      },
+    },
+  });
+};
+
 //main function
 const main = () => {
   displayLocalMovies();
   displayAllMovies();
+  displayBoxChart();
 };
 
 main();

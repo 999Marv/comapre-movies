@@ -17,13 +17,6 @@ header h1 {
   margin: 1.5rem;
 }
 
-main {
-  height: 100vh;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
 #new-movie-form {
   background-color: #333;
   color: aliceblue;
@@ -58,6 +51,18 @@ select {
 
 #dgs {
   width: 8rem;
+}
+
+#movie-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+#movie-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #add-movie {
@@ -106,18 +111,30 @@ button:hover {
   cursor: pointer;
 }
 
-#movie-display {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 #reset {
   background-color: grey;
   border: none;
   color: aliceblue;
   margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
   padding: 0.3rem 2.5rem;
   border-radius: 0.18rem;
   font-size: 1.1rem;
+}
+
+#box-office {
+  background-color: #333;
+  padding-top: 1rem;
+}
+
+#genres-gross {
+}
+
+#critic-audience {
+  background-color: #333;
+  padding-top: 1rem;
+}
+
+#my-chart {
+  height: 30px;
 }

@@ -60,7 +60,7 @@ select {
   width: 8rem;
 }
 
-button {
+#add-movie {
   background-color: grey;
   border: none;
   color: aliceblue;
@@ -104,4 +104,20 @@ li {
 
 button:hover {
   cursor: pointer;
+}
+
+#movie-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#reset {
+  background-color: grey;
+  border: none;
+  color: aliceblue;
+  margin-top: 1.5rem;
+  padding: 0.3rem 2.5rem;
+  border-radius: 0.18rem;
+  font-size: 1.1rem;
 }

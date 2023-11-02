@@ -64,7 +64,7 @@ const handleMovieInput = (e) => {
     Object.fromEntries(formData);
 
   //save movies to local storage
-  setLocalStorageKey('james', {
+  setLocalStorageKey(movieTitle, {
     movieTitle,
     criticScore,
     audienceScore,
@@ -83,22 +83,36 @@ const handleMovieInput = (e) => {
 form.addEventListener('submit', handleMovieInput);
 
 //post local storage
-// const displayLocalMovies = () => {
-//   for (let i = 0; i < localStorage.length; i++) {
-//     const { movieTitle, criticScore, audienceScore, dgs, genre } =
-//       getLocalStorageValue(i);
+const displayLocalMovies = () => {
+  Object.keys(localStorage).forEach((key) => {
+    const { movieTitle, criticScore, audienceScore, dgs, genre } =
+      getLocalStorageValue(key);
+    movieContainer.prepend(
+      displayMovie(movieTitle, criticScore, audienceScore, dgs, genre)
+    );
+  });
+};
 
-//     movieContainer.prepend(
-//       displayMovie(movieTitle, criticScore, audienceScore, dgs, genre)
-//     );
-//   }
-// };
+//reset button
+const resetBtn = document.querySelector('#reset');
 
+//reset button function
+const resetHandler = (e) => {
+  if (!localStorage.length) {
+    return;
+  } else {
+    localStorage.clear();
+    movieContainer.innerHTML = '';
+    displayAllMovies();
+  }
+};
+
+resetBtn.addEventListener('click', resetHandler);
+
+//main function
 const main = () => {
-  // displayLocalMovies();
+  displayLocalMovies();
   displayAllMovies();
 };
 
 main();
-
-//figure out local storage key, save it as a number and increment each time it is used

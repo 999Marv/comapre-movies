@@ -58,10 +58,12 @@
           </select>
         </section>
         <!-- button -->
-        <button>Add Movie</button>
+        <button id="add-movie">Add Movie</button>
       </form>
-
-      <ul aria-labelledby="movie-container" id="movie-container"></ul>
+      <section id="movie-display" aria-labelledby="movie display">
+        <ul aria-labelledby="movie-container" id="movie-container"></ul>
+        <button id="reset">Go Back To Default Movies</button>
+      </section>
     </main>
     <script type="module" src="./src/main.js"></script>
   </body>

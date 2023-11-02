@@ -1,5 +1,4 @@
-import movieData from '../movie-data.json';
-
+import movieData from '../movie-data.json' assert { type: 'json' };
 //Local Storage Code
 const setLocalStorageKey = (key, value) => {
   localStorage.setItem(key, JSON.stringify(value));
